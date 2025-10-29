@@ -2,16 +2,16 @@ application:
   name: DevOpsSimulator
   version: 1.0.0
   environment: production
-  
+
 server:
   host: 0.0.0.0
   port: 8080
   ssl_enabled: true
-  
+
 logging:
   level: INFO
   format: json
-  
+
 # Development configuration (enabled via environment variable)
 development:
   enabled: false
@@ -19,3 +19,54 @@ development:
   hot_reload: false
   debug_mode: false
   mock_apis: false
+
+# ==========================================================
+# EXPERIMENTAL CONFIGURATION (From conflict-simulator branch)
+# NOTE: All sections below are COMMENTED OUT to maintain production
+# stability and backward compatibility.
+# To use, the entire block must be uncommented and environment 
+# variables must be set to enable experimental mode.
+# ==========================================================
+/*
+experimental_mode: true
+# Overridden server config:
+server:
+  port: 9000
+  multi_port: [9000, 9001, 9002]
+
+# Overridden logging config:
+logging:
+  level: TRACE
+  format: structured
+  output: /var/log/experimental.log
+  ai_analysis: enabled
+
+database:
+  host: cluster.example.com
+  port: 5432
+  name: devops_experimental
+  distributed: true
+
+features:
+  auto_scaling: advanced
+  load_balancer: ai-optimized
+  backup_enabled: true
+  chaos_engineering: enabled
+
+ai_features:
+  predictive_scaling: true
+  anomaly_detection: true
+  auto_optimization: true
+  model_version: "v2.1.0"
+
+cloud_providers:
+  - aws
+  - azure
+  - gcp
+  - digitalocean
+
+security:
+  zero_trust: enabled
+  encryption: AES-256
+  audit_logging: comprehensive
+*/
